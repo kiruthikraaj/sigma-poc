@@ -1,0 +1,24 @@
+version: "3"
+services:
+  validator:
+    image: ankrnetwork/bas-template-bsc:devel
+    command:
+      - "geth"
+      - "--datadir=/datadir"
+      - "--genesis=/datadir/genesis.json"
+      - "--mine"
+      - "--password=/datadir/password.txt"
+      - "--allow-insecure-unlock"
+      - "--unlock=${VALIDATOR}"
+      - "--miner.etherbase=${VALIDATOR}"
+      - "--bootnodes=enode://5c8e90050fabb7e14e4921dc107caf533140112245e7a231d0edc49861cd779760ad4804e7034952a5cc79422fa9d31c54e9a6141fb4995af7a6bfce7a39140f@${BOOT_NODE_IP}:30303"
+      - "--gcmode=archive"
+      - "--syncmode=full"
+      - "--networkid=17243"
+    volumes:
+      - "./genesis.json:/datadir/genesis.json"
+      - "../keystore:/datadir/keystore"
+      - "../password.txt:/datadir/password.txt"
+      - "./datadir/validator:/datadir/geth"
+    restart: always
+
