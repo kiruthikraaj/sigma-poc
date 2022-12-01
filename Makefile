@@ -9,7 +9,7 @@ deploy-chain:
 	envsubst < config.json > tmp_config.json
 	docker run --rm -v ${PWD}/tmp_config.json:/config.json -t taher1307/create-genesis:latest /config.json > ./genesis.json
 	rm -f tmp_config.json
-	docker-compose --env-file ./.env up -d
+	docker-compose up -d
 
 .PHONY: deploy-validator
 deploy-validator:
