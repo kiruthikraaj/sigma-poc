@@ -34,8 +34,8 @@ services:
       - "--networkid=17243"
     volumes:
       - "./genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_1:/datadir/geth"
     restart: always
 
@@ -56,8 +56,8 @@ services:
       - "--networkid=17243"
     volumes:
       - "./genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_2:/datadir/geth"
     restart: always
 
@@ -78,8 +78,8 @@ services:
       - "--networkid=17243"
     volumes:
       - "./genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "../password.txt:/datadir/password.txt"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
       - "./datadir/validator_3:/datadir/geth"
     restart: always
 
@@ -107,8 +107,8 @@ services:
       - "8546:8546"
     volumes:
       - "./genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
-      - "./.genesis/password.txt:/datadir/password.txt"
+      - "./keystore:/datadir/keystore"
+      - "./password.txt:/datadir/password.txt"
       - "./datadir/rpc:/datadir/geth"
     restart: always
 
@@ -130,6 +130,6 @@ services:
       - "3000:8080"
     volumes:
       - "./genesis.json:/datadir/genesis.json"
-      - "../keystore:/datadir/keystore"
+      - "./keystore:/datadir/keystore"
       - "./genesis/password.txt:/datadir/password.txt"
     restart: always
